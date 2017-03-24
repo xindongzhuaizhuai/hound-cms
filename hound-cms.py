@@ -26,18 +26,16 @@ if __name__ == '__main__':
 						for cms in cms_list: #遍历路径
 							sql = "update %s set cms = null where url = '%s' " % (table,url);
 							mysql.update(sql)
-							if q.empty():
-								print "\033[1;33;1m  current path : %s  \033[0m" % cms;
-								for_if_cms(url,path+"/cms/"+cms,q);
-							else: 
+							print "\033[1;33;1m  current path : %s  \033[0m" % cms;
+							for_if_cms(url,path+"/cms/"+cms,q);
+							time.sleep(0.2)
+							if not q.empty():
 								url_cms = q.get();
 								sql = "update %s set cms = '%s' where url = '%s' " % (table,url_cms,url);
 								mysql.update(sql)
-								print sql;
 								del url_cms;
 								break;
-							time.sleep(1);
+								time.sleep(0.4);
 
 		time.sleep(2);
 		
-
