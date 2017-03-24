@@ -63,8 +63,6 @@ class data():
 	#修改数据
 	def update(self,sql):
 		try:
-			print sql;
-			print '..>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>';
 			self.mysql.execute(sql); #修改数据
 			self.db.commit()
 		except Exception,e:
