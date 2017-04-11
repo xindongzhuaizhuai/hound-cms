@@ -30,7 +30,14 @@ class httprequest(object):
 				return r.text.encode('utf-8');
 		except Exception,e:
 			print '\033[1;31;1m function : post_http  errer: %s \r \033[0m' % e;
-
-
-
+	def ifhttp(self,url):
+		try:
+			r = requests.get(url,headers=self.header2,timeout=5);
+			hcode = r.status_code
+			if  hcode:
+				return True;
+			else:
+				return False;
+		except Exception,e:
+				return False;
 
