@@ -22,12 +22,13 @@ def if_cms(url,cmsurl,cmsmatching,cmsname,q):
 		http = httprequest();
 		try:
 			html2 = http.get_http(url+cmsurl);
+			status_code = html2.status_code;
 		except Exception,e:
-			html2 = "1";
+			html2 = "11111111111111111111111111111111"
 			print "\033[1;31;1m function : if_cms  errer: %s  \033[0m" % e;
-
-		if html2.status_code == 200 and re.findall(r"%s" % cmsmatching , html2.text.encode('utf-8') , re.I):
-			q.put(cmsname);
+		if html2 != "11111111111111111111111111111111":
+			if status_code == 200 and re.findall(r"%s" % cmsmatching , html2.text.encode('utf-8') , re.I):
+				q.put(cmsname);
 
 def for_if_cms(url,file3,q):
 	tsk = [];
@@ -53,4 +54,5 @@ def for_if_cms(url,file3,q):
 				#thread.exit()  #结束当前线程
 				break;
 			time.sleep(0.2);
+
 
