@@ -15,7 +15,7 @@ class httprequest(object):
 	def get_http(self,url):
 		try:
 			print url;
-			r = requests.get(url,headers=self.header2,timeout=5)  
+			r = requests.get(url,headers=self.header2,timeout=10)  
 			return r;
 		except Exception,e:
 			return "";
@@ -32,7 +32,7 @@ class httprequest(object):
 			print '\033[1;31;1m function : post_http  errer: %s \r \033[0m' % e;
 	def ifhttp(self,url):
 		try:
-			r = requests.get("http://"+url,headers=self.header2,timeout=5);
+			r = requests.get("http://"+url,headers=self.header2,timeout=10);
 			hcode = r.status_code
 			if  hcode:
 				return True;
