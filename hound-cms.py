@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
 					data_url = mysql.urlshow(sql);  #获取url
 					for url in data_url:#遍历url
-						if not simple(url):
+						if not httpget.ifhttp(url):
 							sql = "update %s set cms = null where url = '%s' " % (table,url);
 							mysql.update(sql);
 							continue;
