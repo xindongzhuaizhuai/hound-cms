@@ -25,7 +25,7 @@ def if_cms(url,cmsurl,cmsmatching,cmsname,q):
 			status_code = html2.status_code;
 		except Exception,e:
 			html2 = "11111111111111111111111111111111"
-			print "\033[1;31;1m function : if_cms  errer: %s  \033[0m" % e;
+			#print "\033[1;31;1m function : if_cms  errer: %s  \033[0m" % e;
 		if html2 != "11111111111111111111111111111111":
 			if status_code == 200 and re.findall(r"%s" % cmsmatching , html2.text.encode('utf-8') , re.I):
 				q.put(cmsname);
