@@ -9,6 +9,7 @@ sys.setdefaultencoding('utf-8')
 
 
 if __name__ == '__main__':
+	httpget = httprequest();
 	q= Queue();
 	path = os.path.dirname(os.path.realpath(__file__));
 	while True:
@@ -21,6 +22,10 @@ if __name__ == '__main__':
 
 					data_url = mysql.urlshow(sql);  #获取url
 					for url in data_url:#遍历url
+						if not simple(url):
+							sql = "update %s set cms = null where url = '%s' " % (table,url);
+							mysql.update(sql);
+							continue;
 						print "\033[4;32;1m Current domain : --->  %s \033[0m" % url ;
 						cms_list = dirfile(path+"/cms/"); #获取cms文件匹配路径
 						for cms in cms_list: #遍历路径
