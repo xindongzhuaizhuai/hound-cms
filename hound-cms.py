@@ -1,4 +1,4 @@
-#coding:utf-8
+﻿#coding:utf-8
 from hclass.simple import *
 from hclass.function import *
 from hclass.data import *
@@ -7,7 +7,7 @@ import re,time,sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-
+#xxx
 if __name__ == '__main__':
 	httpget = httprequest();
 	q= Queue();
